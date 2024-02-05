@@ -1,0 +1,27 @@
+
+
+syntax = "proto3";
+package helloworld;
+
+service ShopPage {
+  rpc WidgetChannel (Request) returns (Response) {}
+}
+
+message Request {
+  int64 widgetID = 1;
+  string widgetName = 2;
+  int64 shopID = 3;
+  repeated DynamicRequest data = 4;
+}
+
+message DynamicRequest {
+  string key = 1;
+  string type = 2;
+  string value = 3;
+}
+
+message Response {
+  string errorMessage = 1;
+  string errorCode = 2;
+  bytes Body = 3;
+}
